@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  // url      = env("POSTGRES_PRISMA_URL")
+  url      = env("POSTGRES_DIRECT_URL")
+}
+
+model Post {
+  id          Int      @id @default(autoincrement())
+  author      String
+  content     String
+  votes       Int      @default(0)
+  timestamp   DateTime @default(now())
+  package_id  String
+  module_name String
+  network     String
+  voters      Voter[]
+}
+
+model Voter {
+  id          Int    @id @default(autoincrement())
+  userAccount String
+  vote        Int
+  postId      Int
+  post        Post   @relation(fields: [postId], references: [id])
+}
+
+model PaymentTransaction {
+  id        Int     @id @default(autoincrement())
+  tx_digest String
+  amount    Decimal
+  coin_type String
+  sender    String
+  note      String?
+}
+
+model Voucher {
+  id          Int                 @id @default(autoincrement())
+  code        String
+  total_count Int
+  used_count  Int
+  user        String
+  history     VoucherUseHistory[]
+}
+
+model VoucherUseHistory {
+  id        Int      @id @default(autoincrement())
+  voucherId Int
+  voucher   Voucher  @relation(fields: [voucherId], references: [id])
+  user      String
+  timestamp DateTime @default(now())
+}
+
+model ErrorLog {
+  id        Int      @id @default(autoincrement())
+  timestamp DateTime @default(now())
+  message   String
+  context   String
+}
+
+model DecompiledCode {
+  id             Int      @id @default(autoincrement())
+  packageId      String
+  moduleName     String
+  network        String
+  modelVersion   String
+  bytecodeHash   String
+  decompiledCode String   @db.Text
+  timestamp      DateTime @default(now())
+
+  @@index([packageId, moduleName, network, modelVersion, bytecodeHash], name: "decompiled_code_unique_index")
+}

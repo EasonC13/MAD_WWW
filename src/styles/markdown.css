@@ -1,0 +1,119 @@
+.react-markdown {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.react-markdown h1,
+.react-markdown h2,
+.react-markdown h3,
+.react-markdown h4,
+.react-markdown h5,
+.react-markdown h6 {
+  margin: 24px 0 16px;
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+.react-markdown h1 {
+  font-size: 2em;
+}
+
+.react-markdown h2 {
+  font-size: 1.5em;
+}
+
+.react-markdown h3 {
+  font-size: 1.25em;
+}
+
+.react-markdown h4 {
+  font-size: 1em;
+}
+
+.react-markdown h5 {
+  font-size: .875em;
+}
+
+.react-markdown h6 {
+  font-size: .85em;
+}
+
+.react-markdown p {
+  margin: 0 0 10px;
+}
+
+.react-markdown ul,
+.react-markdown ol {
+  padding-left: 20px;
+  list-style-type: decimal;
+  margin: 0 0 10px;
+}
+
+.react-markdown li {
+  list-style-type: disc;
+  margin: 5px 0;
+}
+
+.react-markdown code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,.1);
+  border-radius: 6px;
+}
+
+.react-markdown pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  border-radius: 6px;
+}
+
+.react-markdown pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+}
+
+.react-markdown blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: .25em solid #dfe2e5;
+  margin: 0;
+}
+
+.react-markdown a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.react-markdown a:hover {
+  text-decoration: underline;
+}
+
+.react-markdown img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.react-markdown table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.react-markdown th,
+.react-markdown td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.react-markdown th {
+  text-align: left;
+  background-color: #f2f2f2;
+}
