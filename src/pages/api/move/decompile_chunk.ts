@@ -84,7 +84,7 @@ import OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse } from "ai";
 import type { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
-import { prompt } from "@/lib/prompt_for_chunk";
+import { prompt } from "@/prompt/chunk";
 import { decryptWithAES256CBC } from "../../../lib/encrypt_utils";
 import { clear } from "console";
 import { CORS_HEADERS } from "@/lib/utils/cors";
